@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/TestJavaBuild/Java11Build/Dockerfile'
-        tags: |
-          $(tag)
+        containerRegistry: 'Dockerhub Autosecurity Architect'
+        repository: 'senanayake76 / autosecurityarchitect'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
