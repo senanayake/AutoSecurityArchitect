@@ -5,11 +5,6 @@
 trigger:
 - main
 
-parameters:
-  – name: containerlist
-    type: object
-    default: ["core/image1","core/image2","core/image3","core/image4"]
-
 resources:
 - repo: self
 
