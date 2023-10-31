@@ -5,6 +5,11 @@
 trigger:
 - main
 
+parameters:
+  – name: containerlist
+    type: object
+    default: ["core/image1","core/image2","core/image3","core/image4"]
+
 resources:
 - repo: self
 
@@ -15,15 +20,17 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - job: Build
-    displayName: Build
+  - job: BuildJava11
+    displayName: Build Java 11 image
     pool:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build Java 11 image
       inputs:
         containerRegistry: 'Dockerhub Autosecurity Architect'
-        repository: 'senanayake76 / autosecurityarchitect'
+        repository: 'senanayake76/autosecurityarchitect'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: 'TestJavaBuild/Java11Build/Dockerfile'
+        tags: |
+          $(tag)-java11
