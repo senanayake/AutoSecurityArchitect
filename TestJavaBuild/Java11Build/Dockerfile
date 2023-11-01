@@ -1,8 +1,7 @@
 FROM amazoncorretto:11-alpine-jdk
 # Update the package manager and install necessary tools
-RUN yum update -y \
-    && yum install -y tar gzip which \
-    && yum clean all
+RUN apk update \
+    && apk add curl
 
 # Define environment variables
 ENV MAVEN_VERSION=3.8.5
