@@ -43,3 +43,17 @@ stages:
         Dockerfile: 'TestJavaBuild/Java17Build/Dockerfile'
         tags: |
           $(tag)-java17          
+  - job: TreeSitter
+    displayName: Build TreeSitterJava
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build TreeSitter Parser Image.
+      inputs:
+        containerRegistry: 'Dockerhub Autosecurity Architect'
+        repository: 'senanayake76/autosecurityarchitect'
+        command: 'buildAndPush'
+        Dockerfile: 'BuildTreeSitterParser/Dockerfile'
+        tags: |
+          $(tag)-treesitter  
