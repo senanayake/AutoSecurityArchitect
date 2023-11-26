@@ -15,7 +15,7 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - jo: TreeSitter
+  - job: TreeSitter
     displayName: Build TreeSitterJava
     pool:
       vmImage: ubuntu-latest
