@@ -15,35 +15,7 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - job: BuildJava11
-    displayName: Build Java 11 image
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: Docker@2
-      displayName: Build Java 11 image
-      inputs:
-        containerRegistry: 'Dockerhub Autosecurity Architect'
-        repository: 'senanayake76/autosecurityarchitect'
-        command: 'buildAndPush'
-        Dockerfile: 'TestJavaBuild/Java11Build/Dockerfile'
-        tags: |
-          $(tag)-java11
-  - job: BuildJava17
-    displayName: Build Java 17 image
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: Docker@2
-      displayName: Build Java 17 image
-      inputs:
-        containerRegistry: 'Dockerhub Autosecurity Architect'
-        repository: 'senanayake76/autosecurityarchitect'
-        command: 'buildAndPush'
-        Dockerfile: 'TestJavaBuild/Java17Build/Dockerfile'
-        tags: |
-          $(tag)-java17          
-  - job: TreeSitter
+  - jo: TreeSitter
     displayName: Build TreeSitterJava
     pool:
       vmImage: ubuntu-latest
@@ -56,4 +28,4 @@ stages:
         command: 'buildAndPush'
         Dockerfile: 'BuildTreeSitterParser/Dockerfile'
         tags: |
-          $(tag)-treesitter  
+          treesitter  
