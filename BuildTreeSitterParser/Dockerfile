@@ -5,3 +5,6 @@ RUN dnf groupinstall  "Development Tools" -x grubby -y
 WORKDIR /opt/app
 COPY requirements.txt /opt/app
 RUN pip install -r requirements.txt
+RUN git clone https://github.com/tree-sitter/tree-sitter-python
+COPY src/* /opt/app
+
